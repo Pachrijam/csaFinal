@@ -1,18 +1,84 @@
-## Getting Started
+# Warrant Search System (APCSA Final Project)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Overview
+This project simulates a small-town police system designed to help officers quickly identify active warrants while on patrol. Built as part of an AP Computer Science A final project, the program allows officers to:
 
-## Folder Structure
+- Search license plates for active warrants  
+- Identify dangerous suspects  
+- Look up warrants by premise (location) code  
 
-The workspace contains two folders by default, where:
+The goal is to improve efficiency and awareness during patrol operations.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+---
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Features
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### License Plate Search
+- Input a license plate in the format:  
+  CHAR INT INT - CHAR CHAR CHAR  
+  Example: G23-HHR  
 
-## Dependency Management
+- Outputs:
+  - Driver details
+  - Warrant status
+  - Crime information (if applicable)
+  - "DANGEROUS" flag if a weapon was involved
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+#### Example Output (With Warrant)
+    License plate: G23-HHR
+    DRIVER: MALE
+    WITH FOLLOWING WARRANT:
+    CODE: 442 (SHOPLIFTING – PETTY THEFT ($950 & UNDER))
+    DANGEROUS
+
+#### Example Output (No Warrant)
+    License plate: G23-HHR
+    NO WARRANT
+
+---
+
+### Premise Code Search
+- Input a 3-digit premise code (e.g., 101)
+- Displays all active warrants associated with that location
+
+#### Example Output (With Warrants)
+    Premise Code: 101
+    6 Local Warrants:
+    Warrant 1 - G23-HHR
+    Warrant 2 - G23-HHG
+    Warrant 3 - G23-HHH
+    Warrant 4 - G23-HHD
+    Warrant 5 - G23-HHS
+    Warrant 6 - G23-HHA
+
+- User can then input a license plate to view full warrant details
+
+#### Example Output (No Warrants)
+    Premise Code: 105
+    NO LOCAL WARRANTS
+
+---
+
+## How It Works
+- Stores warrant data including:
+  - License plate
+  - Driver information
+  - Crime code and description
+  - Dangerous status
+- Supports:
+  - License plate lookup
+  - Premise code grouping
+- Uses arrays or ArrayLists for data management
+
+---
+
+## Technologies Used
+- Java
+- Arrays / ArrayLists
+- Conditional logic
+- User input handling
+
+---
+
+## 👮‍♂️ Scenario Context
+You play as a police officer in a town of ~2,000 civilians with 50 active warrants. Your partner, Officer Lego, encourages you to use your coding skills to streamline warrant searches during patrol.
