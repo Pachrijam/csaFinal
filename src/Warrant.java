@@ -13,7 +13,6 @@ public class Warrant {
                    String crimeDescription,
                    int premiseCode,
                    boolean dangerous) {
-
         this.licensePlate = licensePlate;
         this.sex = sex;
         this.crimeCode = crimeCode;
@@ -46,26 +45,24 @@ public class Warrant {
         return dangerous;
     }
 
-    public void printDetails() {
-
-        System.out.println("License Plate: " + (licensePlate == null ? "UNKNOWN" : licensePlate));
-
-        if (sex != null) {
-            String s = sex.trim();
-            if (s.equalsIgnoreCase("M")) {
-                System.out.println("DRIVER: MALE");
-            } else if (s.equalsIgnoreCase("F")) {
-                System.out.println("DRIVER: FEMALE");
-            } else {
-                System.out.println("DRIVER: UNKNOWN");
-            }
-        } else {
-            System.out.println("DRIVER: UNKNOWN");
+    public String getSexLabel() {
+        if (sex == null) {
+            return "UNKNOWN";
         }
+        if (sex.trim().equalsIgnoreCase("M")) {
+            return "MALE";
+        }
+        if (sex.trim().equalsIgnoreCase("F")) {
+            return "FEMALE";
+        }
+        return "UNKNOWN";
+    }
 
+    public void printDetails() {
+        System.out.println("License Plate: " + (licensePlate == null ? "UNKNOWN" : licensePlate));
+        System.out.println("DRIVER: " + getSexLabel());
         System.out.println("WITH FOLLOWING WARRANT:");
         System.out.println("CODE: " + crimeCode + " (" + (crimeDescription == null ? "" : crimeDescription) + ")");
-
         if (dangerous) {
             System.out.println("DANGEROUS");
         }
