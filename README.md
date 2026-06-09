@@ -80,5 +80,5 @@ The goal is to improve efficiency and awareness during patrol operations.
 
 ---
 
-## 👮‍♂️ Scenario Context
+## Scenario Context
 You play as a police officer in a town of ~2,000 civilians with 50 active warrants. Your partner, Officer Lego, encourages you to use your coding skills to streamline warrant searches during patrol.
