@@ -26,24 +26,60 @@ public class Warrant {
         return licensePlate;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public int getCrimeCode() {
+        return crimeCode;
+    }
+
+    public String getCrimeDescription() {
+        return crimeDescription;
+    }
+
     public int getPremiseCode() {
         return premiseCode;
     }
 
+    public boolean isDangerous() {
+        return dangerous;
+    }
+
     public void printDetails() {
 
-        System.out.println("License Plate: " + licensePlate);
+        System.out.println("License Plate: " + (licensePlate == null ? "UNKNOWN" : licensePlate));
 
-        if(sex.equalsIgnoreCase("M"))
-            System.out.println("DRIVER: MALE");
-        else
-            System.out.println("DRIVER: FEMALE");
+        if (sex != null) {
+            String s = sex.trim();
+            if (s.equalsIgnoreCase("M")) {
+                System.out.println("DRIVER: MALE");
+            } else if (s.equalsIgnoreCase("F")) {
+                System.out.println("DRIVER: FEMALE");
+            } else {
+                System.out.println("DRIVER: UNKNOWN");
+            }
+        } else {
+            System.out.println("DRIVER: UNKNOWN");
+        }
 
         System.out.println("WITH FOLLOWING WARRANT:");
-        System.out.println("CODE: " + crimeCode
-                + " (" + crimeDescription + ")");
+        System.out.println("CODE: " + crimeCode + " (" + (crimeDescription == null ? "" : crimeDescription) + ")");
 
-        if(dangerous)
+        if (dangerous) {
             System.out.println("DANGEROUS");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Warrant{" +
+                "licensePlate='" + licensePlate + '\'' +
+                ", sex='" + sex + '\'' +
+                ", crimeCode=" + crimeCode +
+                ", crimeDescription='" + crimeDescription + '\'' +
+                ", premiseCode=" + premiseCode +
+                ", dangerous=" + dangerous +
+                '}';
     }
 }
