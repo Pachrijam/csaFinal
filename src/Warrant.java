@@ -45,39 +45,4 @@ public class Warrant {
     boolean isDangerous() {
         return dangerous;
     }
-
-    public String getSexLabel() {
-        if (sex == null) {
-            return "UNKNOWN";
-        }
-        if (sex.trim().equalsIgnoreCase("M")) {
-            return "MALE";
-        }
-        if (sex.trim().equalsIgnoreCase("F")) {
-            return "FEMALE";
-        }
-        return "UNKNOWN";
-    }
-
-    public void printDetails() {
-        System.out.println("License Plate: " + (licensePlate == null ? "UNKNOWN" : licensePlate));
-        System.out.println("DRIVER: " + getSexLabel());
-        System.out.println("WITH FOLLOWING WARRANT:");
-        System.out.println("CODE: " + crimeCode + " (" + (crimeDescription == null ? "" : crimeDescription) + ")");
-        if (dangerous) {
-            System.out.println("DANGEROUS");
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Warrant{" +
-                "licensePlate='" + licensePlate + '\'' +
-                ", sex='" + sex + '\'' +
-                ", crimeCode=" + crimeCode +
-                ", crimeDescription='" + crimeDescription + '\'' +
-                ", premiseCode=" + premiseCode +
-                ", dangerous=" + dangerous +
-                '}';
-    }
 }
