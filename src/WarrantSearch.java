@@ -175,7 +175,7 @@ public class WarrantSearch {
         ArrayList<Warrant> warrants = loadData(fileToLoad);
 
         System.out.println("Search by license plate or premise code? (Enter 'plate' or 'premise')");
-        String searchType = scan.nextLine().trim().toLowerCase();
+        String searchType = scan.nextLine().toLowerCase();
 
         if (searchType.equals("plate")) {
             searchByPlate(warrants, scan);
