@@ -43,11 +43,6 @@ public class WarrantSearch {
                 || upper.contains("AGGRAVATED");
     }
 
-    // New helper that reads the package-private field on Warrant
-    private static boolean isDangerous(Warrant w) {
-        return w.dangerous;
-    }
-
     public static ArrayList<Warrant> loadData(String fileName) throws FileNotFoundException {
         ArrayList<Warrant> warrants = new ArrayList<>();
         File file = new File(fileName);
@@ -134,7 +129,7 @@ public class WarrantSearch {
         System.out.println("WITH FOLLOWING WARRANT:");
         for (Warrant match : matches) {
             System.out.println("CODE: " + match.getCrimeCode() + " (" + match.getCrimeDescription() + ")");
-            if (isDangerous(match)) {
+            if (match.isDangerous()) {
                 System.out.println("DANGEROUS");
             }
         }
