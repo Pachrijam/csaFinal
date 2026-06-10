@@ -5,7 +5,7 @@ public class Warrant {
     private int crimeCode;
     private String crimeDescription;
     private int premiseCode;
-    boolean dangerous;
+    private boolean dangerous;
 
     public Warrant(String licensePlate,
                    String sex,
@@ -39,6 +39,11 @@ public class Warrant {
 
     public int getPremiseCode() {
         return premiseCode;
+    }
+
+    // package-private (default) access so other classes in the same package can call it
+    boolean isDangerous() {
+        return dangerous;
     }
 
     public String getSexLabel() {
