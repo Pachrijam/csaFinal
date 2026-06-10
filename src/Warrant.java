@@ -5,7 +5,7 @@ public class Warrant {
     private int crimeCode;
     private String crimeDescription;
     private int premiseCode;
-    private boolean dangerous;
+    boolean dangerous;
 
     public Warrant(String licensePlate,
                    String sex,
@@ -39,10 +39,6 @@ public class Warrant {
 
     public int getPremiseCode() {
         return premiseCode;
-    }
-
-    public boolean isDangerous() {
-        return dangerous;
     }
 
     public String getSexLabel() {
