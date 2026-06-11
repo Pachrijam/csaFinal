@@ -40,8 +40,7 @@ public class Warrant {
     public int getPremiseCode() {
         return premiseCode;
     }
-
-    // package-private (default) access so other classes in the same package can call it
+    
     boolean isDangerous() {
         return dangerous;
     }
