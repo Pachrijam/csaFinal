@@ -78,7 +78,6 @@ public class WarrantSearch {
                             premiseCode,
                             inferDangerous(crimeDescription)));
                 } catch (NumberFormatException | ArrayIndexOutOfBoundsException ignored) {
-                    // skip malformed rows
                 }
             }
         }
